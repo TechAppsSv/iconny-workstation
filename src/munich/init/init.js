@@ -41,7 +41,7 @@ const contextMenu = require('electron-context-menu');
  });
 
 // Only activate for linux and mac in windows activate this code line is poor functionally
-// app.disableHardwareAcceleration ();
+app.disableHardwareAcceleration ();
 let newProductWindow;
 function createWindow () {
   // Create the browser window.
@@ -198,20 +198,20 @@ const template = [
       },
       // Only enable for Iconny Developer Version or mode test 
       // PLease NOT Activate for production
-      {
-         label: 'DevMode',
-         submenu: [
-           { role: 'reload' },
-         { role: 'forceReload' },
-           { role: 'toggleDevTools' },
-           { type: 'separator' },
-           { role: 'resetZoom' },
-           { role: 'zoomIn' },
-           { role: 'zoomOut' },
-           { type: 'separator' },
-           { role: 'togglefullscreen' }
-         ]
-       },
+      // {
+      //    label: 'DevMode',
+      //    submenu: [
+      //      { role: 'reload' },
+      //    { role: 'forceReload' },
+      //      { role: 'toggleDevTools' },
+      //      { type: 'separator' },
+      //      { role: 'resetZoom' },
+      //      { role: 'zoomIn' },
+      //      { role: 'zoomOut' },
+      //      { type: 'separator' },
+      //      { role: 'togglefullscreen' }
+      //    ]
+      //  },
 
       {
         label: 'About',
