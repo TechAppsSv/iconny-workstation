@@ -1,0 +1,70 @@
+{
+	"name": "iconny",
+	"productName": " Iconny Browser LTS",
+	"version": "20.1.1",
+	"description": "Maxima rapidez y ligereza y minimalismo",
+	"main": "src/munich/init/init.js",
+	"scripts": {
+		"pack": "build --dir",
+		"dist": "build",
+		"build-linux": "electron-builder --linux --publish always",
+		"build-win": "electron-builder --win --publish always",
+		"build-mac": "electron-builder --mac --publish always",
+		"package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=build/icon.icns --prune=true --out=release-mac-app",
+		"start": "electron src/munich/init/init.js",
+		"create-installer-mac": "electron-installer-dmg ./release-builds/Electron\\ tutorial\\ app-darwin-x64/Electron\\ tutorial\\ app.app iconny-mac --out=release-builds --overwrite --icon=build/icon.icns"
+	},
+	"author": "Kaihatsu Software <kaihatsusoftware@gmail.com>",
+	"license": "MIT",
+	"build": {
+		"appId": "com.techapps.iconnylts",
+		
+		"productName": "Iconny Browser LTS ",
+		"win": {
+			"target": [
+				"nsis",
+				"zip"
+			],
+			"icon": "build/icon.ico"
+		},
+		"mac": {
+			"category": "productivity",
+			"target": [
+				"dmg"
+			],
+			"icon": "build/icon.icns"
+		},
+		"linux": {
+			"category": "Browser",
+			"target": [
+				"AppImage"
+			
+			],
+			"icon": "build/background.png"
+		},
+		"publish": [
+			{
+				"provider": "generic",
+				"url": "https://gitlab.com"
+			}
+		],
+		"nsis": {
+			"oneClick": "false",
+			"allowToChangeInstallationDirectory": "true",
+			"perMachine": "true"
+		}
+	},
+	"dependencies": {
+		"@cliqz/adblocker-electron": "^1.20.3",
+		"cross-fetch": "^3.0.6",
+		"draggabilly": "^2.3.0",
+		"electron-context-menu": "^2.5.0",
+		"electron-tabs": "^0.15.0"
+	},
+	"devDependencies": {
+		"electron": "^15.1.2",
+		"electron-builder": "^22.9.1",
+		"electron-installer-dmg": "^3.0.0",
+		"electron-packager": "^15.2.0"
+	}
+}
